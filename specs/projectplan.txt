@@ -1,0 +1,51 @@
+Context
+• We are the portfolio manager of an long-term investment fund with the ability to allocate into multiple asset classes with a total return objective and a long-term investment horizon (5 to 10 years). 
+• We are looking to set our asset allocation strategy. In order to set an upper boundary of how well an asset allocation strategy could perform, we are building and analyzing a set of 'Perfect Hindsight Portfolios' (PHPs). 
+• A Perfect Hindsight Portfolio is built with larger allocations to asset classes that performed well during the investment horizon, subject to constraints such as overweight limit, as if the portfolio manager precisely knew the performance of each asset class at the end of the investment horizon.
+• We run historical simulations of PHPs with different mandates (e.g., with and without alternatives) with different constraints (e.g., rebalancing frequency and over/underweight limits) and measure the risk and return of the PHPs. 
+• The performance of PHPs are measured against a static 60/40 portfolio to measure, if we had virtually perfect asset allocation skills, how we would perform against a static portfolio with no alternatives. 
+• Given the endowment-like nature of the fund, the investment committee is particularly sensitive to absolute return drawdowns. Excess return and tracking error against the static 60/40 portfolio will also be measured.  
+
+Global declarations
+• Timeframe of analysis
+	• 01-01-1996 to 05-31-2025
+• Investment mandates
+	• EQFI
+	• EQFILA
+	• EQFILAIA
+• Benchmark
+	• 6040
+• Target allocation weight for benchmark and PHP types
+	• specs/See target_weight.xlsx
+• List of PHP scenarios
+	• Investment horizon
+	• Rebalancing frequency
+	• Permitted overweight/underweight
+	• Transaction costs
+	• ** See specs/scenarios.txt for detailed scenarios for each scenario type
+• Weight scheme
+	• Neutral Weight: The asset class weight of the PHP based on the investment mandate of the PHP. For example, the neutral weight for EQFI would be 60 / 28 / 12 (Russell 3000 / ICE BofA US Treasury / ICE BofAML US Corporate).
+	• Perfect Weight: The maximum/minimum weight of a given asset class based on the performance of the asset class subject to Permitted Deviation. 
+	• If an asset class's absolute return is negative, the Perfect Weight of such asset class would be the minimum weight permitted by over/underweight limit.
+	• If there are no asset classes with negative absolute return or all asset classes have negative absolute return, the Perfect Weight would be proportional to the relative absolute return of each asset classes, capped by the Permitted Deviation.
+	• For example, if equity performance was 15% and fixed income performance was -5% for a 10-year horizon for a EQFI PHP, and Permitted Deviation is 50%, the Perfect Weight would be 90 / 7 / 3 (Russell 3000 / ICE BofA US Treasury / ICE BofAML US Corporate). If equity performance was 15% and fixed income performance was -5% for a 10-year horizon for a EQFI PHP, and Permitted Deviation is 5%, the Perfect Weight would be 65 / 24.5 / 10.5 (Russell 3000 / ICE BofA US Treasury / ICE BofAML US Corporate). If equity performance was 4% and fixed income performance was 1% for a 10-year horizon for a EQFI PHP, and over/underweight limit is 50%, the Perfect Weight would be 80 / 14 / 6 (Russell 3000 / ICE BofA US Treasury / ICE BofAML US Corporate).  
+	• If a portfolio's asset class weight moves beyond the Permitted Deviation because of asset class performance, conduct a rebalancing trade even if it's outside the designated rebalancing frequency. Transaction costs would still occur.
+
+Analysis Scheme
+	1) Generate '6040'
+		a. Daily linkage of Russell 3000, ICE BofA US Treasury Index, and ICE BofAML US Corporate Index
+		b. Assume daily rebalancing to maintain 60% / 28% / 12% weight
+	2) Generate initial PHPs
+		a. Based on the logic described in relevant documents, generate all iterations of the PHP and assign a unique identifier to each PHP
+	3) Calculate Perfect Weight for each PHP
+		a. Based on the Neutral Weight of each PHP, list out the final performance for each asset class included in the portfolio.
+		b. Based on the final performance of each asset class, calculate the Perfect Weight for the PHP and set as initial asset allocation weight.
+	4) Calculate total return of PHP
+		a. For the investment horizon of the PHP, calculate the asset class weight deviation based on the performance of the asset classes held in the portfolio on a daily basis.
+		b. Following the logic and constraints, calculate the total return of the PHP based on the daily asset class weight, permitted deviation, rebalancing frequency, and transaction costs.
+	5) Calculate maximum drawdown of each PHP
+		
+			• MDD = \max_{t \in [0,T]} \left( \frac{\text{Peak Value}_t - \text{Trough Value}_t}{\text{Peak Value}_t} \right)
+		
+	6) Calculate excess return and tracking error
+Calculate excess return and tracking error of each PHP against the 6040 portfolio. Annualize excess return and tracking error 

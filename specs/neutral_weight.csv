@@ -1,0 +1,15 @@
+,,Benchmark,Investment Mandate,,
+Category,Index,6040,EQFI,EQFILA,EQFILAIA
+Equity,Russell 3000,60.0%,60.0%,42.0%,36.0%
+,,,,,
+Fixed Income,ICE BofA US Treasury,28.0%,28.0%,19.6%,16.8%
+,ICE BofAML US Corporate,12.0%,12.0%,8.4%,7.2%
+,,,,,
+Alts - Liquid,Dow Jones US Real Estate Index,,,10.0%,6.7%
+,S&P Goldman Sachs Commodity Index,,,10.0%,6.7%
+,Credit Suisse Hedge Fund Index,,,10.0%,6.6%
+,,,,,
+Alts - Illiquid,Refinitiv Venture Capital,,,,10.0%
+,Refinitiv Private Equity Buyout,,,,10.0%
+,,,,,
+Total,,100.0%,100.0%,100.0%,100.0%

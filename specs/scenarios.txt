@@ -1,0 +1,30 @@
+Investment Horizon
+Description: Determines the length of the investment for each scenario. Rolling returns for each time horizon should be calculated. A PHP is created and processed on a monthly cadence, with the earliest date of each month as the start date. For example, if the total time period for analysis is 01-01-2002 to 12-31-2022, the first 10-year investment horizon PHP would have an investment horizon of 01-01-2002 to 12-31-2012, the next one 02-01-2002 to 01-31-2013, the next one 03-01-2002 to 02-28-2013, and so on.
+Scenarios:
+• Monthly rolling 10 year investment horizon
+• Monthly rolling 5 year investment horizon
+
+Permitted Deviation
+Description: Upper and lower limit of the Perfect Weigh compared to Neutral Weigh for each asset class. 
+Scenarios:
+• +/- 50%
+• +/- 20%
+• +/- 10% 
+• +/- 5% 
+
+Rebalancing Frequency
+Description: For each PHP, there will be 4 rebalancing frequency scenarios. If the rebalancing frequency is monthly, the portfolio's asset class weight would drift until the end of the month, when the portfolio's asset class weight would be reset to the target weight of the portfolio.
+Scenarios:
+• Monthly rebalancing
+• Quarterly rebalancing
+• Annual rebalancing
+• No rebalancing
+
+
+Transaction Cost
+Description: Whenever a rebalancing occurs during the investment horizon, the total return of the portfolio will be reduced by 'transaction cost * portfolio weight rebalanced * 2'. All transaction cost accrued during the investment horizon will be subtracted from the total return of the portfolio at the end of the investment horizon. 
+Scenarios:
+• 100bps
+• 50bps
+• 25bps
+• 5bps
