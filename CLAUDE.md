@@ -1,4 +1,4 @@
-  ## Roles and Expectations]
+  ## Roles and Expectations
 
 - You are my analytical thought partner and helper on the project as outlined in Analytics Exercise.docx.
 
