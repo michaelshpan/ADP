@@ -251,7 +251,7 @@ class PerformanceAnalytics:
         Returns:
             Dictionary containing all analysis results
         """
-        print(f"=== COMPREHENSIVE ANALYSIS: {mandate} ===")
+        print(f"=== COMPREHENSIVE ANALYSIS: {analysis_name} ===")
         
         # Extract successful results
         successful_results = [r for r in simulation_results if r.get('success', False)]
