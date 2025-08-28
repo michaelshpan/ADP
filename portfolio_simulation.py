@@ -379,7 +379,7 @@ class PortfolioSimulation:
             'time_period_years': time_period_years,
             'volatility': portfolio_returns.std() * np.sqrt(252),
             'max_drawdown': self._calculate_max_drawdown(portfolio_series),
-            'sharpe_ratio': ((portfolio_returns.mean() - self.data_mapper.get_risk_free_rate() / 252) * 252) / (portfolio_returns.std() * np.sqrt(252)) if portfolio_returns.std() > 0 else 0
+            'sharpe_ratio': ((portfolio_returns.mean() - 0.02 / 252) * 252) / (portfolio_returns.std() * np.sqrt(252)) if portfolio_returns.std() > 0 else 0
         }
         
         return results
