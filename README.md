@@ -227,12 +227,6 @@ python master_orchestrator.py --compare-mandates --start 2015-01-01 --end 2020-0
 - `specs/index_map.csv` - Asset class mappings
 - `data/data_*.csv` - Historical return data (11 files)
 
-### **Output Locations**
-- `reports/` - All analysis results and visualizations
-- `reports/vs_bm/` - Benchmark comparison results
-- `reports/charts/` - Visualization files
-- `reports/executive/` - Leadership summaries
-
 ---
   
 *Documentation Date: August 27, 2025*
